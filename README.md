@@ -5,7 +5,7 @@ Node version 20.11.0
 ![mockup3](https://github.com/aldeko3/AlphaFuntzionala/assets/23291563/f893c1ba-0e50-4ab0-b691-1d4dd9f829d7)
 ![mockup4](https://github.com/aldeko3/AlphaFuntzionala/assets/23291563/b10825c3-ce4e-410a-87d9-457145a48c3b)
 
-#ES NECESARIO CREAR LA CARPETA "PUBLIC" CON LOS SIGUIENTES ARCHIVOS:#
+ES NECESARIO CREAR LA CARPETA "PUBLIC" CON LOS SIGUIENTES ARCHIVOS:
   - HomeVideo.mp4
   - Introduction.jpg
   - About.jpg
