@@ -1,0 +1,173 @@
+---
+import SimpleLogo from "../icons/SimpleLogo.astro";
+import RightChevron from "../icons/RightChevron.astro";
+import Close from "../icons/Close.astro";
+import Kettlebell from "../icons/Kettlebell.astro";
+---
+
+<header
+  id="landing-header"
+  class="py-5 px-10 flex items-center fixed top-0 w-full justify-between z-40 text-white"
+>
+  <div class="flex flex-grow basis-0">
+    <a href="./"><SimpleLogo /></a>
+  </div>
+  <nav class="flex flex-grow justify-end basis-0">
+    <ul
+      class="flex text-sm [&>li>a]:transition-colors [&>li>a]:duration-500 [&>li>a]:text-current [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2"
+    >
+      <li class="hidden xl:block sm:hidden">
+        <a href="#quienes-somos">Quienes somos</a>
+      </li>
+      <li class="hidden xl:block sm:hidden">
+        <a href="#que-hacemos">Qué hacemos</a>
+      </li>
+      <li class="hidden xl:block sm:hidden"><a href="#pricing">Tarifas</a></li>
+      <li class="hidden xl:block sm:hidden"><a href="#contact">Contacto</a></li>
+      <li>
+        <a id="menu-btn" href="#">
+          <Kettlebell customClass="h-5 color-current" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <nav
+    id="modal-menu"
+    class="hidden xl:hidden flex flex-col bg-white fixed top-0 left-0 right-0 bottom-0"
+  >
+    <button id="close-btn" class="w-screen flex justify-end py-5 px-10">
+      <Close customClass="h-10 px-4 py-2" />
+    </button>
+    <ul
+      class="flex flex-col mt-4 [&>li>a]:transition-colors [&>li]:m-3 [&>li>a]:flex [&>li>a]:justify-between [&>li>a]:duration-200 [&>li>a]:text-gray-500 [&>li>a]:font-bold [&>li>a]:inline-block [&>li>a]:px-6 [&>li>a]:py-3 [&>li>a]:rounded-md [&>li>a]:w-full"
+    >
+      <li>
+        <a class="hover:bg-slate-100" href="#home">
+          Alpha
+          <RightChevron customClass="h-6" />
+        </a>
+      </li>
+      <li>
+        <a class="hover:bg-slate-100" href="#quienes-somos"
+          >Quienes somos
+          <RightChevron customClass="h-6" />
+        </a>
+      </li>
+      <li>
+        <a class="hover:bg-slate-100" href="#que-hacemos"
+          >Qué hacemos
+          <RightChevron customClass="h-6" />
+        </a>
+      </li>
+      <li>
+        <a class="hover:bg-slate-100" href="#pricing"
+          >Tarifas
+          <RightChevron customClass="h-6" />
+          </a
+        >
+      </li>
+      <li>
+        <a class="hover:bg-slate-100" href="#contact"
+          >Contacto
+          <RightChevron customClass="h-6" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div
+    id="menu-backdrop"
+    class={`
+      absolute bg-black/5 backdrop-blur-lg rounded
+      translate-x-[var(--left)] translate-y-[var(--top)]
+      left-0 top-0
+      w-[var(--width)] h-[var(--height)]
+      transition-all duration-300
+      ease-in-out opacity-0 -z-10
+    `}
+  >
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const modalMenu = document.querySelector("#modal-menu");
+  const menuItems = modalMenu.querySelectorAll("li>a ");
+  const closeBtn = document.querySelector("#close-btn");
+
+  function toggleDropdownMenu() {
+    modalMenu.classList.toggle("hidden");
+  }
+
+  menuBtn.addEventListener("click", toggleDropdownMenu);
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1279) {
+      // assuming 768px is the threshold for a narrow window
+      menuBtn.style.display = "none";
+    } else {
+      menuBtn.style.display = "block"; // or 'inline-block' or your original display value
+    }
+  });
+
+  // Trigger the event on page load as well
+  if (window.innerWidth > 1279) {
+    menuBtn.style.display = "none";
+  } else {
+    menuBtn.style.display = "block"; // or 'inline-block' or your original display value
+  }
+
+  closeBtn.addEventListener("click", toggleDropdownMenu);
+
+  menuItems.forEach((Item) => {
+    Item.addEventListener("click", toggleDropdownMenu);
+  });
+</script>
+
+<script>
+  const listItem = document.querySelectorAll("#landing-header li");
+  const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement;
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const { left, top, width, height } = item.getBoundingClientRect();
+
+      menuBackDrop.style.setProperty("--left", `${left}px`);
+      menuBackDrop.style.setProperty("--top", `${top}px`);
+      menuBackDrop.style.setProperty("--width", `${width}px`);
+      menuBackDrop.style.setProperty("--height", `${height}px`);
+
+      menuBackDrop.style.opacity = "1";
+      menuBackDrop.style.visibility = "visible";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      menuBackDrop.style.opacity = "0";
+      menuBackDrop.style.visibility = "hidden";
+    });
+  });
+</script>
+
+<script>
+  const headerEl = document.querySelector("#landing-header") as HTMLElement;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px", // en cuanto se vea el elemento
+    threshold: 0.9, // porcentaje de visibilidad
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
+      if (isIntersecting) {
+        const color = entry.target.getAttribute("data-header-color");
+        headerEl.style.color = color;
+      }
+    });
+  }, observerOptions);
+
+  const sectionElements = document.querySelectorAll(".landing-section");
+  sectionElements.forEach((section) => observer.observe(section));
+</script>

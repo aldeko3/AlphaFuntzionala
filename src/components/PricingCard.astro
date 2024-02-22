@@ -1,0 +1,89 @@
+---
+const { pricingHeader, price, time } = Astro.props;
+---
+
+<div
+    class="price-card justify-center flex flex-col rounded-md shadow-lg bg-gray-700"
+>
+    <h2 class="pricing-text font-semibold text-gray-400">
+        {pricingHeader}
+    </h2>
+    <div>
+        <span class="pricing font-bold text-gray-300">{price}€</span>
+        <span class="pricing-second-text font-medium text-gray-300"
+            >/{time}</span
+        >
+    </div>
+</div>
+
+<style>
+    .price-card {
+        width: -webkit-fill-available;
+        padding: 2rem;
+        transition: all 0.3s ease-in-out;
+    }
+    .price-card:hover {
+        transform: scale(1.05);
+    }
+    .pricing-text {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    .pricing {
+        font-size: 2.5rem;
+    }
+    .pricing-second-text {
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .price-card {
+            padding: 1rem;
+        }
+        .pricing-text {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .pricing {
+            font-size: 2rem;
+        }
+        .pricing-second-text {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .pricing-text {
+            font-size: 0.8rem;
+        }
+        .pricing {
+            font-size: 1.5rem;
+        }
+        .pricing-second-text {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 300px) {
+        .pricing {
+            font-size: 1rem;
+        }
+    }
+
+    /* Height media queries */
+    @media (max-height: 500px) {
+        .price-card {
+            padding: 0.8rem;
+        }
+        .pricing-text {
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .pricing {
+            font-size: 1rem;
+        }
+        .pricing-second-text {
+            font-size: 0.9rem;
+        }
+    }
+</style>

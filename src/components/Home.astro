@@ -1,0 +1,33 @@
+---
+import Logo from "../icons/Logo.astro";
+import MainSection from "./MainSection.astro";
+---
+
+<MainSection
+  color="white"
+  id="home"
+>
+  <div slot="footer">
+    <h1>ALPHA ENTRENAMENDU FUNTZIONALA</h1>
+    <Logo color="white" customClass="h-32 absolute top-1/2 left-1/2 -translate-x-1/2 transition-colors duration-500" />
+  </div>
+  <video
+    slot="background"
+    class="object-center object-cover h-full w-full"
+    playsinline
+    autoplay
+    muted
+    loop
+    src="../../public/HomeVideo.mp4"
+    >
+    <!-- <source src="../../public/video.webm" type="video/webm" /> -->
+    <source src="../../public/HomeVideo.mp4" type="video/mp4" />
+    <!-- <source src="../../public/video.ogv" type="video/ogg" /> -->
+  </video>
+</MainSection>
+
+<style>
+  h1 {
+    display: none;
+  }
+</style>

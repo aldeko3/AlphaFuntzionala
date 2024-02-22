@@ -1,0 +1,119 @@
+---
+import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
+import Phone from "../icons/Phone.astro";
+import Email from "../icons/Email.astro";
+import Instagram from "../icons/Instagram.astro";
+---
+
+<Section color="black" id="contact" showFooterContent="true">
+  <div slot="body" class="gap-x-6 mx-auto bg-white h-screen w-screen">
+    <section class="h-screen flex items-center lg:h-screen">
+      <div class="h-screen flex flex-col justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0 md:px-6">
+      <SectionHeader title="Contacto" subtitle="Subtítulo de contacto" />
+        <div class="2xl:container px-8 flex flex-row items-center gap-6 sm:gap-16 mx-auto max-w-4xl text-justify">
+          <div class="left-section h-full">
+            <div class="left-section-contact mb-4 text-gray-500">
+              <Phone customClass="w-6 mr-4 object-contain" />
+              <span>+34 666 666 666</span>
+            </div>
+            <div class="left-section-contact mb-4 text-gray-500">
+              <Email customClass="w-6 mr-4 " />
+              <a href="mailto:alphafuntzionala@gmail.com">alphafuntzionala@gmail.com</a>
+            </div>
+            <div class="left-section-contact mb-4 text-gray-500">
+              <Instagram customClass="w-6 h-5 mr-4 " />
+              <a href="https://www.instagram.com/alpha.funtzionala/"target="_blank"rel="noopener noreferrer">@alpha.funtzionala</a>
+            </div>
+            <div class="relative w-full h-4/6 border rounded-md shadow-lg">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-md"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900.749313706585!2d-3.0062450239566787!3d43.36135407125792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e5b786d8ba3f5%3A0xa0faa761683b74cc!2sALPHA%20entrenamendu%20funtzionala!5e0!3m2!1sen!2ses!4v1707579811663!5m2!1sen!2ses"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              >
+              </iframe>
+            </div>
+          </div>
+          <form class="ml-auo space-y-4">
+            <div class="flex gap-4">
+              <input
+                type="text"
+                placeholder="Nombre"
+                class="input-area w-full rounded-md py-2.5 px-4 border shadow-lg outline-none bg-gray-700 text-gray-300"
+              />
+              <input
+                type="email"
+                placeholder="Correo"
+                class="input-area w-full rounded-md py-2.5 px-4 border shadow-lg outline-none bg-gray-700 text-gray-300"
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Asunto"
+              class="input-area w-full rounded-md py-2.5 px-4 border shadow-lg outline-none bg-gray-700 text-gray-300"
+            />
+            <textarea
+              placeholder="Mensaje"
+              class="input-area w-full rounded-md px-4 border shadow-lg pt-2.5 outline-none bg-gray-700 text-gray-300"
+            ></textarea>
+            <button
+              type="button"
+              class="send-button text-gray-500 hover:text-gray-200 bg-gray-200 hover:bg-gray-400 transition duration-300 ease-in font-semibold border rounded-md shadow-lg px-4 py-2.5 w-full"
+              >Enviar</button
+            >
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</Section>
+
+<style>
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .left-section-contact {
+    display: -webkit-box;
+  }
+  .input-area {
+    font-size: small;
+  }
+  textarea {
+    height: 8rem;
+    min-height: 8rem;
+    max-height: 8rem;
+  }
+  .send-button {
+    font-size: 0.875rem;
+  }
+
+  /* Width media queries */
+  @media (max-width: 767px) {
+    .left-section {
+      display: none;
+    }
+  }
+
+  /* Height media queries */
+  @media (max-height: 500px) {
+    .input-area {
+      height: 2rem;
+      font-size: x-small;
+    }
+    textarea {
+      height: 5rem;
+      min-height: 5rem;
+      max-height: 5rem;
+    }
+    .send-button {
+      height: 2rem;
+      font-size: x-small;
+    }
+  }
+</style>
+
+<!-- https://tailgrail.com/tailwind/pricing/pricing-style-8 -->

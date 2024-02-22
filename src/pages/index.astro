@@ -1,0 +1,37 @@
+---
+import Home from "../components/Home.astro";
+import Navbar from "../components/Navbar.astro";
+import About from "../components/About.astro";
+import Introduction from "../components/Introduction.astro";
+import Pricing from "../components/Pricing.astro";
+import SpecialPricing from "../components/SpecialPricing.astro";
+import Contact from "../components/Contact.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Alpha">
+  <Navbar />
+  <main
+    class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+  >
+    <div class="snap-center">
+      <Home />
+    </div>
+    <div class="snap-center">
+      <Introduction />
+    </div>
+    <div class="snap-center">
+      <About />
+    </div>
+    <div class="snap-center">
+      <Pricing />
+    </div>
+    <div class="snap-center">
+      <SpecialPricing />
+    </div>
+    <div class="snap-center">
+      <Contact />
+    </div>
+  </main>
+</Layout>
+

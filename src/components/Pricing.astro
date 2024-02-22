@@ -1,0 +1,56 @@
+---
+import Section from "./Section.astro";
+import PricingCard from "./PricingCard.astro";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<Section color="black" id="pricing">
+  <div slot="body" class="gap-x-6 mx-auto bg-white h-screen w-screen">
+    <section class="h-screen flex items-center lg:h-screen">
+      <div class="h-screen flex flex-col justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0 md:px-6">
+        <SectionHeader title="Tarifas" subtitle="Entrenamientos grupales" />
+        <div class="pricing-container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 px-8">
+          <div class="flex w-full">
+            <PricingCard pricingHeader="1 entrenamiento por semana" price="45" time="mes" />
+          </div>
+          <div class="flex w-full">
+            <PricingCard pricingHeader="2 entrenamientos por semana" price="70" time="mes" />
+          </div>
+          <div class="flex w-full">
+            <PricingCard pricingHeader="3 entrenamientos por semana" price="85" time="mes" />
+          </div>
+          <div class="flex w-full">
+            <PricingCard pricingHeader="4 entrenamientos por semana" price="100" time="mes" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Section>
+
+<style>
+  .pricing-container {
+    gap: 1.5rem;
+  }
+
+  /* Width media queries */
+  @media (max-width: 1023px) {
+    .pricing-container {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 300px) {
+    .pricing-container {
+      gap: 0.5rem;
+    }
+  }
+
+  /* Height media queries */
+  @media (max-height: 500px) {
+    .pricing-container {
+      gap: 0.5rem;
+    }
+  }
+</style>
+<!-- https://tailgrail.com/tailwind/pricing/pricing-style-8 -->

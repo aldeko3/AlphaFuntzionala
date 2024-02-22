@@ -1,0 +1,129 @@
+---
+import Section from "./Section.astro";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<Section color="black" id="quienes-somos">
+  <div slot="body" class="gap-x-6 mx-auto bg-white h-screen w-screen">
+    <section class="h-screen flex items-center lg:h-screen">
+      <div class="h-screen flex flex-col justify-center flex-1 max-w-6xl px-4 py-4 mx-auto lg:py-0 md:px-6">
+        <div class="flex flex-col justify-center">
+          <SectionHeader title="Quienes somos" subtitle="Subtítulo de sección" />
+          <div class="content-container flex sm:flex-row flex-col items-center px-8" >
+            <div class="content lg:mb-0">
+              <h2 class="title font-bold text-gray-700 text-center">
+                We are providing a better facility
+              </h2>
+              <p class="text text-gray-500 text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam.
+              </p>
+            </div>
+            <div class="img-container relative w-full md:w-1/2 lg:mb-0">
+              <img
+                src="../../public/Introduction.jpg"
+                alt=""
+                class="relative z-40 object-cover w-full rounded-md shadow-lg md:h-96 h-44"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Section>
+
+<style>
+  img {
+    transition: all .3s ease-in-out;
+  }
+  img:hover {
+    transform: scale(1.05);
+  }
+  .content-container {
+    gap: 4rem;
+  }
+  .content {
+    width: 50%;
+  }
+  .title {
+    font-size: x-large;
+    margin-bottom: 1rem;
+  }
+  .text {
+    font-size: medium;
+    line-height: 1.7rem;
+  }
+
+  /* Width media queries */
+  @media (max-width: 767px) {
+    .img-container {
+      display: none;
+    }
+    .content {
+      width: auto;
+    }
+  }
+  @media (max-width: 640px) {
+    .content-container {
+      gap: 0;
+      display: block;
+    }
+  }
+  @media (max-width: 480px) {
+    .title {
+      font-size: large;
+      margin-bottom: 0.5rem;
+    }
+    .text {
+      font-size: small;
+      line-height: 1.3rem;
+    }
+  }
+  @media (max-width: 300px) {
+    .title {
+      font-size: medium;
+    }
+    .text {
+      font-size: x-small;
+      line-height: 1rem;
+    }
+  }
+
+  /* Height media queries */
+  @media (max-height: 500px) {
+    .content-container {
+      gap: 0;
+      display: block;
+    }
+    .content {
+      width: auto;
+    }
+    .img-container {
+      display: none;
+    }
+    .title {
+      font-size: large;
+      margin-bottom: 0.5rem;
+    }
+    .text {
+      font-size: small;
+      line-height: 1rem;
+    }
+  }
+  @media (max-height: 300px) {
+    .title {
+      font-size: medium;
+    }
+    .text {
+      font-size: x-small;
+      line-height: 1rem;
+    }
+  }
+</style>
