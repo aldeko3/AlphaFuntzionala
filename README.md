@@ -8,7 +8,6 @@ ES NECESARIO CREAR LA CARPETA "PUBLIC" CON LOS SIGUIENTES ARCHIVOS:
   - HomeVideo.mp4
   - Introduction.jpg
   - About.jpg
-  - favicon.ico
 
 Guía: https://www.youtube.com/watch?v=RB5tR_nqUEw&t=1996s&ab_channel=midulive
 Node version 20.11.0
