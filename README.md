@@ -1,4 +1,3 @@
-Node version 20.11.0
 # AlphaFuntzionala
 ![mockup1](https://github.com/aldeko3/AlphaFuntzionala/assets/23291563/8ccf1ea2-415f-4e0c-9837-1fe420698da5)
 ![mockup2](https://github.com/aldeko3/AlphaFuntzionala/assets/23291563/9c27089b-140d-400e-aa8d-22964992e210)
@@ -10,3 +9,6 @@ ES NECESARIO CREAR LA CARPETA "PUBLIC" CON LOS SIGUIENTES ARCHIVOS:
   - Introduction.jpg
   - About.jpg
   - favicon.ico
+
+Guía: https://www.youtube.com/watch?v=RB5tR_nqUEw&t=1996s&ab_channel=midulive
+Node version 20.11.0
